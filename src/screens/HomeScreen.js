@@ -24,12 +24,12 @@ const reducer = (state, action) => {
 };
 
 function HomeScreen() {
-  const [{ loading, error, product1 }, dispatch] = useReducer(logger(reducer), {
-    product1: [],
+  const [{ loading, error, productsOrder }, dispatch] = useReducer(logger(reducer), {
+    products: [],
     loading: true,
     error: '',
   });
-  const [products, setProducts] = useState(product1);
+  const [products, setProducts] = useState([1,2,3,4]);
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
