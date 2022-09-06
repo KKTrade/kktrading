@@ -25,11 +25,11 @@ const reducer = (state, action) => {
 
 function HomeScreen() {
   const [{ loading, error, productsOrder }, dispatch] = useReducer(logger(reducer), {
-    products: [],
+    productsOrder: [],
     loading: true,
     error: '',
   });
-  const [products, setProducts] = useState([1,2,3,4]);
+  const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
@@ -59,7 +59,7 @@ function HomeScreen() {
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <Row>
-            {products?.map((product) => (
+            {products?.forEach((product) => (
               <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                 <Product product={product}></Product>
               </Col>
