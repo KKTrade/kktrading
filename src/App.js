@@ -145,7 +145,7 @@ function App() {
             <Nav.Item>
               <strong>Categories</strong>
             </Nav.Item>
-            {categories.map((category) => (
+            {/* {categories.map((category) => (
               <Nav.Item key={category}>
                 <LinkContainer
                   to={`/search?category=${category}`}
@@ -154,7 +154,7 @@ function App() {
                   <Nav.Link>{category}</Nav.Link>
                 </LinkContainer>
               </Nav.Item>
-            ))}
+            ))} */}
           </Nav>
         </div>
         <div style={{background:'grey',height:30,display:'flex',justifyContent:'space-between',fontSize:13,alignItems:'center',textAlign:'center'}}>
