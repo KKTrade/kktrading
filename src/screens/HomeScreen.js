@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet-async';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Courosal from '../components/Courosal';
-// import data from '../data';
+import data from '../data';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -24,12 +24,12 @@ const reducer = (state, action) => {
 };
 
 function HomeScreen() {
-  const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
-    products: [{}],
+  const [{ loading, error, product1 }, dispatch] = useReducer(logger(reducer), {
+    product1: [],
     loading: true,
     error: '',
   });
-  // const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(product1);
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
@@ -64,11 +64,6 @@ function HomeScreen() {
                 <Product product={product}></Product>
               </Col>
             ))}
-
-          {products.map(function(product) {
-             <Product product={product}></Product>
-          })}
-
           </Row>
         )}
       </div>
