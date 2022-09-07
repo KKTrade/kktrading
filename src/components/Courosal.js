@@ -24,8 +24,7 @@ function Courosal() {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>Granites</h3>
-          <p>Ganites With Tiles </p>
+          <p> </p>
         </Carousel.Caption>
       </Carousel.Item>
 
@@ -39,6 +38,18 @@ function Courosal() {
         <Carousel.Caption>
           <h3>All Types Of Sanitary  Wares</h3>
           <p>Bathroom Kitchen Sensor Taps Adjustable</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+
+      <Carousel.Item style={{maxHeight:250}} interval={2000}>
+        <img
+          className="d-block w-100"
+          src="/images/p6.jpg"
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <h3></h3>
+          <p style={{fontWeight: 'bold'}}>Make Your Dream House Beautiful</p>
         </Carousel.Caption>
       </Carousel.Item>
    

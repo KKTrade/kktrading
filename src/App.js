@@ -36,6 +36,7 @@ import UserEditScreen from './screens/UserEditScreen';
 import MapScreen from './screens/MapScreen';
 import useWindowDimensions from './hook/windowDim';
 import ReturnScreen from './screens/ReturnScreen';
+import AllReturns from './screens/AllReturns';
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -81,13 +82,13 @@ function App() {
           <div style={{cursor:'pointer',textDecoration:'none',color:'white'}}>
             <Link style={{textDecoration:'none',color:'white'}} to="/">
           <h4 style={{fontSize:22,fontWeight:'bold'}}>KK Tradings</h4>
-          <p style={{fontSize:12,fontWeight:'bold'}}>Tiles Granites Sanitary Wares</p>
+          <p style={{fontSize:12,fontWeight:'bold'}}>Tiles Granites Sanitary {width <= 500 ? "" : "Wares"}</p>
           </Link>
 
 
           {userInfo ? (
-        <div style={{background:'white',borderRadius:5,width:'60%'}} >
-        <p style={{color:'black',fontWeight:'bold',alignItems:'center',justifyContent:'center',textAlign:'center'}}>{userInfo.name}</p>
+        <div style={{background:'white',borderRadius:5,width:'90%'}} >
+        <Link style={{textDecoration:'none',color:'white'}} to="/profile"><p style={{color:'black',fontWeight:'bold',alignItems:'center',justifyContent:'center',textAlign:'center'}}>{width <= 500 ? userInfo.name.length > 8 ? userInfo.name.slice(0,8) + '..' : userInfo.name : userInfo.name}</p></Link>
         </div>
       ) : (
         <div style={{background:'white',borderRadius:5,width:'60%'}} >
@@ -106,7 +107,7 @@ function App() {
         <Link style={{textDecoration:'none',color:'white'}} to="/admin/products"> <p style={{fontSize:12,fontWeight:'bold',background:'#bb920f',padding:5,borderRadius:5,margin:3,cursor:'pointer'}}>Products</p></Link>
         </div>
         <div style={{display: 'flex', justifyContent: 'space-between'}}>
-          <p style={{fontSize:12,fontWeight:'bold',background:'#bb920f',padding:5,borderRadius:5,margin:3}}>Returns</p>
+        <Link style={{textDecoration:'none',color:'white'}} to="/return"><p style={{fontSize:12,fontWeight:'bold',background:'#bb920f',padding:5,borderRadius:5,margin:3}}>Returns</p></Link>
           <Link style={{textDecoration:'none',color:'white'}} to="/admin/users"><p style={{fontSize:12,fontWeight:'bold',background:'#bb920f',padding:5,borderRadius:5,margin:3,cursor:'pointer'}}>All Users</p></Link>
           <p style={{fontSize:12,fontWeight:'bold',background:'#bb920f',padding:5,borderRadius:5,margin:3}}> <Link style={{textDecoration:'none',color:'white'}} to="/cart"> Cart
        {cart.cartItems.length >= 0 && (
@@ -159,7 +160,7 @@ function App() {
         </div>
         <div style={{background:'grey',height:30,display:'flex',justifyContent:'space-between',fontSize:13,alignItems:'center',textAlign:'center'}}>
           <div>
-            <marquee style={{fontWeight:'bold',color:'white'}}>Cera Somany Hindware Jhonson Parryware Comapny Products Available With Cheap Prize</marquee>
+            <marquee style={{fontWeight:'bold',color:'white'}}>CERA SOMANY JHONSON HINDWARE PARRYWARE MOZRAT TOSCANA WEBER AGL Comapany Products Available With Best Prizes</marquee>
           </div>
           {userInfo ?
           <div style={{marginRight:6}}>
@@ -187,6 +188,7 @@ function App() {
               <Route path="/signin" element={<SigninScreen />} />
               <Route path="/signup" element={<SignupScreen />} />
               <Route path="/return" element={<ReturnScreen />} />
+              <Route path="/allreturn" element={<AllReturns />} />
               <Route
                 path="/profile"
                 element={

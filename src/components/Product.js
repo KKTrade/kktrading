@@ -40,11 +40,11 @@ function Product(props) {
         <img src={product.image} className="card-img-top" alt={product.name} />
       </Link>
       <Card.Body>
-        <Link to={`/product/${product.slug}`}>
+        <Link style={{textDecoration:'none',color:'#bb920f'}} to={`/product/${product.slug}`}>
           <Card.Title>{product.name}</Card.Title>
         </Link>
         <Rating rating={product.rating} numReviews={product.numReviews} />
-        <Card.Text>${product.price}</Card.Text>
+        <Card.Text style={{fontWeight:'bold'}}>M.R.P ₹{product.price}</Card.Text>
         {product.countInStock === 0 ? (
           <Button variant="light" disabled>
             Out of stock
@@ -54,13 +54,13 @@ function Product(props) {
         )}
       </Card.Body>
     </Card> ) :  (
-      <div style={{height:100,cursor:'pointer',textAlign:'center',marginTop:10,width:'98%',marginBottom:50,display:'flex',justifyContent:'space-between'}}>
+      <div style={{height:120,cursor:'pointer',textAlign:'center',marginTop:10,width:'98%',marginBottom:50,display:'flex',justifyContent:'space-between'}}>
       <Link style={{textDecoration:'none',textAlign:'center'}} to={`/product/${product.slug}`}>
-      <img style={{width:100,height:70}} src={product.image} />
+      <img style={{width:130,height:80}} src={product.image} />
       <Rating rating={product.rating} numReviews={product.numReviews} />
       </Link>
       <div>
-      <p style={{fontWeight:'bold',color:'#bb920f'}}>{product.name.length > 10 ? product.name.slice(0,19) : product.name}</p>
+      <p style={{fontWeight:'bold',color:'#bb920f',fontSize:18}}>{product.name.length > 10 ? product.name.slice(0,19) : product.name}</p>
       <p style={{fontWeight:'bold',color:'#a84032'}}>M.R.P: ₹{product.price}</p>
       {product.countInStock === 0 ? (
           <Button variant="light" disabled>
