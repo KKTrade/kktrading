@@ -10,6 +10,8 @@ import MessageBox from '../components/MessageBox';
 import Courosal from '../components/Courosal';
 import data from '../data';
 
+axios.defaults.baseURL = 'https://kktradingbackend.herokuapp.com/';
+
 const reducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_REQUEST':
@@ -23,6 +25,7 @@ const reducer = (state, action) => {
   }
 };
 
+
 function HomeScreen() {
   const [{ loading, error, getProducts }, dispatch] = useReducer(logger(reducer), {
     getProducts: [],
@@ -34,8 +37,9 @@ function HomeScreen() {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       const result = await axios.get('/api/products');
+      console.log(result);
       try {
-        dispatch({ type: 'FETCH_SUCCESS', payload: result });
+        dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });
       }

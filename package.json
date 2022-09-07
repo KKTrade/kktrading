@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "proxy": "https://kktradingbackend.herokuapp.com",
+  "proxy": "https://kktradingbackend.herokuapp.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
