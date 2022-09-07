@@ -24,23 +24,23 @@ const reducer = (state, action) => {
 };
 
 function HomeScreen() {
-  const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
-    products: [],
+  const [{ loading, error, getProducts }, dispatch] = useReducer(logger(reducer), {
+    getProducts: [],
     loading: true,
     error: '',
   });
-  // const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState();
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
       const result = await axios.get('/api/products');
       try {
-        dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
+        dispatch({ type: 'FETCH_SUCCESS', payload: result });
       } catch (err) {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });
       }
 
-      // setProducts(result.data);
+      setProducts(result.data);
     };
     fetchData();
   }, []);
