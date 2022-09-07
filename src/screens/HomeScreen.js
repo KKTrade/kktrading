@@ -24,12 +24,12 @@ const reducer = (state, action) => {
 };
 
 function HomeScreen() {
-  const [{ loading, error, productsOrder }, dispatch] = useReducer(logger(reducer), {
-    productsOrder: [],
+  const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
+    products: [],
     loading: true,
     error: '',
   });
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
       dispatch({ type: 'FETCH_REQUEST' });
@@ -40,7 +40,7 @@ function HomeScreen() {
         dispatch({ type: 'FETCH_FAIL', payload: err.message });
       }
 
-      setProducts(result.data);
+      // setProducts(result.data);
     };
     fetchData();
   }, []);
@@ -59,7 +59,7 @@ function HomeScreen() {
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <Row>
-            {products?.forEach((product) => (
+            {products?.map((product) => (
               <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
                 <Product product={product}></Product>
               </Col>

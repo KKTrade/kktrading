@@ -139,7 +139,7 @@ export default function ProductListScreen() {
     <div>
       <Row>
         <Col>
-          <h1>Products</h1>
+          <h4 style={{fontWeight:'bold', margin: 'auto',color:'orange'}}>Products</h4>
         </Col>
         <Col className="col text-end">
           <div>
@@ -159,10 +159,10 @@ export default function ProductListScreen() {
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <>
-          <table className="table">
+          <table style={{width:'98%'}} className="table">
             <thead>
               <tr>
-                <th>ID</th>
+                {/* <th>ID</th> */}
                 <th>NAME</th>
                 <th>PRICE</th>
                 <th>CATEGORY</th>
@@ -173,8 +173,8 @@ export default function ProductListScreen() {
             <tbody>
               {products.map((product) => (
                 <tr key={product._id}>
-                  <td>{product._id}</td>
-                  <td>{product.name}</td>
+                  {/* <td>{product._id}</td> */}
+                  <td style={{fontWeight:'bold'}}>{product.name}</td>
                   <td>{product.price}</td>
                   <td>{product.category}</td>
                   <td>{product.brand}</td>
